@@ -1,0 +1,30 @@
+{
+  "name": "osm2json",
+  "version": "0.0.0",
+  "description": "Converts an OSM XML file to JSON objects as a transform stream",
+  "main": "lib/osm2json.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digidem/osm2json.git"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "node-expat": ">=1.4.4"
+  },
+  "keywords": [
+    "xml",
+    "expat",
+    "osm",
+    "stream"
+  ],
+  "author": "Gregor MacLennan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digidem/osm2json/issues"
+  }
+}

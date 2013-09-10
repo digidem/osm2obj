@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="Osmosis 0.42-6-gf39a160-dirty">
+  <node id="1" version="0" timestamp="2013-09-05T19:38:11.187Z" uid="1" user="gregor" lat="0" lon="0">
+    <tag k="null" v="island"/>
+  </node>
+  <node id="18" version="3" timestamp="2013-09-05T19:38:11Z" changeset="46" lat="38.9002492" lon="-77.0225367">
+    <tag k="leisure" v="park"/>
+    <tag k="name" v="Dolores"/>
+  </node>
+  <node id="19" version="1" timestamp="2013-09-05T19:38:11.187Z" changeset="38" lat="38.8998538" lon="-77.0233199"/>
+  <node id="20" version="2" timestamp="2013-09-05T19:38:11Z" changeset="39" lat="38.8999847" lon="-77.0229564"/>
+  <node id="21" version="1" timestamp="2013-09-05T19:38:11.187Z" changeset="38" lat="38.8998607" lon="-77.0223121"/>
+  <node id="22" version="1" timestamp="2013-09-05T19:38:11.187Z" changeset="38" lat="38.899932" lon="-77.0219574"/>
+  <node id="26" version="1" timestamp="2013-09-05T19:38:11Z" changeset="46" lat="38.9000215" lon="-77.0217801"/>
+  <node id="27" version="1" timestamp="2013-09-05T19:38:11Z" changeset="46" lat="38.9001894" lon="-77.0216382"/>
+  <node id="28" version="2" timestamp="2013-09-05T19:38:11Z" changeset="48" lat="38.9002676" lon="-77.0228559">
+    <tag k="amenity" v="hospital"/>
+    <tag k="name" v="SF General"/>
+  </node>
+  <node id="29" version="1" timestamp="2013-09-05T19:38:11Z" changeset="50" lat="38.9003573" lon="-77.0232578">
+    <tag k="amenity" v="place_of_worship"/>
+  </node>
+  <way id="3" version="3" timestamp="2013-09-05T19:38:11Z" changeset="49">
+    <nd ref="19"/>
+    <nd ref="20"/>
+    <nd ref="21"/>
+    <nd ref="22"/>
+    <nd ref="26"/>
+    <nd ref="27"/>
+    <tag k="name" v="York St"/>
+  </way>
+</osm>
