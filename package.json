@@ -1,6 +1,6 @@
 {
   "name": "osm2json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Converts an OSM XML file to OSM JSON objects as a transform stream",
   "main": "lib/osm2json.js",
   "scripts": {
