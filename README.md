@@ -1,6 +1,7 @@
 # osm2json
 
 [![npm](https://img.shields.io/npm/v/osm2json.svg?maxAge=2592000)](https://www.npmjs.com/package/osm2json)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 > Streaming parser from OSM XML to OSM JSON objects
 
@@ -97,7 +98,7 @@ The readable side of the stream is in `objectMode`.
 
 ## Contribute
 
-PRs welcome. Right now this could do with some tests. If you are feeling ambitious, this could be sped up by using [node-expat](https://github.com/astro/node-expat) on node. The interface is similar to sax-js and it should be possible to wrap this to use sax-js on the browser and node-expat on the server using the [browserify `browser` field](https://github.com/substack/browserify-handbook#browser-field)
+PRs welcome. Please follow [JS Standard Style](http://standardjs.com/). Right now this could do with some tests. If you are feeling ambitious, this could be sped up by using [node-expat](https://github.com/astro/node-expat) on node. The interface is similar to sax-js and it should be possible to wrap this to use sax-js on the browser and node-expat on the server using the [browserify `browser` field](https://github.com/substack/browserify-handbook#browser-field)
 
 ## License
 
