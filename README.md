@@ -92,9 +92,17 @@ var Osm2Json = require('osm2json')
 
 Create a transform stream with:
 
-* `opts.coerceIds` - coerce ids to `Number` (defaults to *true*)
+* `opts.coerceIds` - coerce id-type fields (`id, uid, version, changeset, ref`) to `Number` (default `true`) - useful for [osm-p2p-db](https://github.com/digidem/osm-p2p-db) where ids can be strings.
+* `opts.bounds` - Also parse bounds (default `true`)
+* `opts.types` - An array of element types you are interested in, e.g. `opts.types = ['node']` (default `['node', 'way', 'relation', 'changeset']`)
+* `opts.strict` - Be a jerk about XML (default `false`). In strict mode will throw an error if:
+  - XML is badly formatted
+  - Case of element names differs from spec
+  - Root node is not one of `osm`, `osmChange`
+  - An action element (`create, modify, delete`) appears when the root is not `osmChange`
+  - Any element in the XML which is not one of `create, modify, delete, node, way, relation, changeset, bounds, nd, tag, member`
 
-The readable side of the stream is in `objectMode`.
+Any attribute that is not a valid OSM XML attribute will be ignored (see [`WHITELISTS`](https://github.com/digidem/osm2json/blob/master/lib/osm2json.js#L27-L48)). `tag`, `member`, of `nd` elements without the required attributes will throw an error. The readable side of the stream is in `objectMode`.
 
 ## Contribute
 
