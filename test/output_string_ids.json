@@ -1,0 +1,131 @@
+[ {
+    "type": "bounds",
+    "maxlat": 90,
+    "maxlon": 180,
+    "minlat": -90,
+    "minlon": -180
+  },
+  {
+    "type": "node",
+    "id": "1",
+    "version": "0",
+    "timestamp": "2013-09-05T19:38:11.187Z",
+    "uid": "1",
+    "user": "gregor",
+    "lat": 0,
+    "lon": 0,
+    "tags": {
+      "null": "island"
+    }
+  },
+  {
+    "type": "node",
+    "id": "18",
+    "version": "3",
+    "timestamp": "2013-09-05T19:38:11Z",
+    "changeset": "46",
+    "lat": 38.9002492,
+    "lon": -77.0225367,
+    "tags": {
+      "leisure": "park",
+      "name": "Dolores"
+    }
+  },
+  {
+    "type": "node",
+    "id": "19",
+    "version": "1",
+    "timestamp": "2013-09-05T19:38:11.187Z",
+    "changeset": "38",
+    "lat": 38.8998538,
+    "lon": -77.0233199
+  },
+  {
+    "type": "node",
+    "id": "20",
+    "version": "2",
+    "timestamp": "2013-09-05T19:38:11Z",
+    "changeset": "39",
+    "lat": 38.8999847,
+    "lon": -77.0229564
+  },
+  {
+    "type": "node",
+    "id": "21",
+    "version": "1",
+    "timestamp": "2013-09-05T19:38:11.187Z",
+    "changeset": "38",
+    "lat": 38.8998607,
+    "lon": -77.0223121
+  },
+  {
+    "type": "node",
+    "id": "22",
+    "version": "1",
+    "timestamp": "2013-09-05T19:38:11.187Z",
+    "changeset": "38",
+    "lat": 38.899932,
+    "lon": -77.0219574
+  },
+  {
+    "type": "node",
+    "id": "26",
+    "version": "1",
+    "timestamp": "2013-09-05T19:38:11Z",
+    "changeset": "46",
+    "lat": 38.9000215,
+    "lon": -77.0217801
+  },
+  {
+    "type": "node",
+    "id": "27",
+    "version": "1",
+    "timestamp": "2013-09-05T19:38:11Z",
+    "changeset": "46",
+    "lat": 38.9001894,
+    "lon": -77.0216382
+  },
+  {
+    "type": "node",
+    "id": "28",
+    "version": "2",
+    "timestamp": "2013-09-05T19:38:11Z",
+    "changeset": "48",
+    "lat": 38.9002676,
+    "lon": -77.0228559,
+    "tags": {
+      "amenity": "hospital",
+      "name": "SF General"
+    }
+  },
+  {
+    "type": "node",
+    "id": "29",
+    "version": "1",
+    "timestamp": "2013-09-05T19:38:11Z",
+    "changeset": "50",
+    "lat": 38.9003573,
+    "lon": -77.0232578,
+    "tags": {
+      "amenity": "place_of_worship"
+    }
+  },
+  {
+    "type": "way",
+    "id": "3",
+    "version": "3",
+    "timestamp": "2013-09-05T19:38:11Z",
+    "changeset": "49",
+    "nodes": [
+      "19",
+      "20",
+      "21",
+      "22",
+      "26",
+      "27"
+    ],
+    "tags": {
+      "name": "York St"
+    }
+  }
+]

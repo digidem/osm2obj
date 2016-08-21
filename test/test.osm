@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <osm version="0.6" generator="Osmosis 0.42-6-gf39a160-dirty">
+  <bounds minlat="-90" minlon="-180" maxlat="90" maxlon="180"/>
   <node id="1" version="0" timestamp="2013-09-05T19:38:11.187Z" uid="1" user="gregor" lat="0" lon="0">
     <tag k="null" v="island"/>
   </node>
