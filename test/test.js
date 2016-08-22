@@ -95,27 +95,3 @@ test('diffResult', function (t) {
     t.end()
   }))
 })
-
-test('malformed xml', function (t) {
-  var input = '<osm>\n' +
-    '<changeset' +
-    '<tag k="comment" v="wow"/>' +
-    '</changeset>' +
-    '</osm>'
-  fromString(input).pipe(new Osm2Json({strict: true})).on('error', function (err) {
-    t.ok(err instanceof Error)
-    t.end()
-  }).resume()
-})
-
-test('invalid element', function (t) {
-  var input = '<osm>\n' +
-    '<changeset' +
-    '<bob k="comment" v="wow"/>' +
-    '</changeset>' +
-    '</osm>'
-  fromString(input).pipe(new Osm2Json({strict: true})).on('error', function (err) {
-    t.ok(err instanceof Error)
-    t.end()
-  }).resume()
-})

@@ -4,7 +4,7 @@
   "description": "Converts an OSM XML file to OSM JSON objects as a transform stream",
   "main": "lib/osm2json.js",
   "scripts": {
-    "test": "standard && node test/*.js"
+    "test": "standard && tape test/*.js"
   },
   "repository": {
     "type": "git",
