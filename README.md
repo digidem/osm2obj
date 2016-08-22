@@ -132,11 +132,11 @@ Create a transform stream with:
 * `opts.strict` - Be a jerk about XML (default `false`). In strict mode will throw an error if:
   - XML is badly formatted
   - Case of element names differs from spec
-  - Root node is not one of `osm`, `osmChange`
+  - Root node is not one of `osm`, `osmChange`, `diffResult`
   - An action element (`create, modify, delete`) appears when the root is not `osmChange`
   - Any element in the XML which is not one of `create, modify, delete, node, way, relation, changeset, bounds, nd, tag, member`
 
-Any attribute that is not a valid OSM XML attribute will be ignored (see [`WHITELISTS`](https://github.com/digidem/osm2json/blob/master/lib/osm2json.js#L27-L48)). `tag`, `member`, of `nd` elements without the required attributes will throw an error. The readable side of the stream is in `objectMode`.
+Any attribute that is not a valid OSM XML attribute will be ignored (see [`WHITELISTS`](https://github.com/digidem/osm2json/blob/master/lib/osm2json.js#L27-L48)). `tag`, `member`, or `nd` elements without the required attributes will throw an error. The readable side of the stream is in `objectMode`.
 
 ### stream.parse(str)
 
