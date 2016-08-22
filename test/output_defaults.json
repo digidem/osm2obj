@@ -127,5 +127,27 @@
     "tags": {
       "name": "York St"
     }
+  },
+  {
+    "type": "relation",
+    "changeset": 49,
+    "id": 30,
+    "members": [
+      {
+        "ref": 19,
+        "role": "",
+        "type": "node"
+      },
+      {
+        "ref": 3,
+        "role": "outer",
+        "type": "way"
+      }
+    ],
+    "tags": {
+      "test": "relation"
+    },
+    "timestamp": "2013-09-05T19:38:11Z",
+    "version": 1
   }
 ]
