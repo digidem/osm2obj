@@ -1,5 +1,6 @@
 # osm2json
 
+[![Build Status](https://img.shields.io/travis/digidem/osm2json.svg)](https://travis-ci.org/digidem/osm2json)
 [![npm](https://img.shields.io/npm/v/osm2json.svg)](https://www.npmjs.com/package/osm2json)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?maxAge=2592000)](http://standardjs.com/)
 
