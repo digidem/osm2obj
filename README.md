@@ -7,6 +7,8 @@
 
 Implements a [Node Transport Stream](http://nodejs.org/api/stream.html#stream_class_stream_transform). Takes a readable stream of [OSM XML](http://wiki.openstreetmap.org/wiki/OSM_XML) and outputs a stream of objects compatible with Overpass [OSM JSON](http://overpass-api.de/output_formats.html#json). Also reads [OsmChange](http://wiki.openstreetmap.org/wiki/OsmChange) XML and outputs the same format but with an additional property `action` which is one of `create`, `modify`, `delete`. Uses [sax-js](https://github.com/isaacs/sax-js) to work in both node and the browser.
 
+NB: The name of this module is a bit of a misnomer - it outputs objects, not JSON.
+
 ## Table of Contents
 
 - [Install](#install)
@@ -79,6 +81,37 @@ rs.pipe(new Osm2Json()).pipe(process.stdout)
     from: 'Konrad-Adenauer-Platz',
     name: 'VRS 636'
   }
+}
+```
+
+## Example: Actual JSON output
+
+```js
+var through = require('through2')
+var fs = require('fs')
+var path = require('path')
+var Osm2Json = require('../lib/osm2json')
+
+var rs = fs.createReadStream(path.join(__dirname, '../test/test.osm'))
+
+var jsonStream = through.obj(write, end)
+
+jsonStream.push('[')
+var start = true
+
+rs.pipe(new Osm2Json()).pipe(jsonStream).pipe(process.stdout)
+
+function write (row, enc, next) {
+  if (!start) {
+    this.push(', ')
+  } else {
+    start = false
+  }
+  next(null, JSON.stringify(row, null, 2))
+}
+
+function end (next) {
+  this.push(']\n')
 }
 ```
 
