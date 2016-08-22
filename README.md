@@ -70,12 +70,11 @@ rs.pipe(new Osm2Json()).pipe(process.stdout)
     {
       type: 'relation',
       ref: 1745069,
-      role: ''
+      role: 'outer'
     },
     {
       type: 'relation',
-      ref: 172789,
-      role: ''
+      ref: 172789
     }
   ],
   tags: {
