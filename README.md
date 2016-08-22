@@ -104,6 +104,10 @@ Create a transform stream with:
 
 Any attribute that is not a valid OSM XML attribute will be ignored (see [`WHITELISTS`](https://github.com/digidem/osm2json/blob/master/lib/osm2json.js#L27-L48)). `tag`, `member`, of `nd` elements without the required attributes will throw an error. The readable side of the stream is in `objectMode`.
 
+### stream.parse(str)
+
+Parse `str` and return the result. Will throw any error.
+
 ## Contribute
 
 PRs welcome. Please follow [JS Standard Style](http://standardjs.com/). Right now this could do with some tests. If you are feeling ambitious, this could be sped up by using [node-expat](https://github.com/astro/node-expat) on node. The interface is similar to sax-js and it should be possible to wrap this to use sax-js on the browser and node-expat on the server using the [browserify `browser` field](https://github.com/substack/browserify-handbook#browser-field)
