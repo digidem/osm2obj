@@ -30,7 +30,7 @@ npm install osm2json
 var fs = require('fs')
 var Osm2Json = require('../lib/osm2json')
 
-var rs = fs.createReadableStream(__dirname + './test.osm')
+var rs = fs.createReadableStream(__dirname + './osm.xml')
 
 rs.pipe(new Osm2Json()).pipe(process.stdout)
 ```
@@ -92,7 +92,7 @@ var fs = require('fs')
 var path = require('path')
 var Osm2Json = require('../lib/osm2json')
 
-var rs = fs.createReadStream(path.join(__dirname, '../test/test.osm'))
+var rs = fs.createReadStream(path.join(__dirname, '../test/osm.xml'))
 
 var jsonStream = through.obj(write, end)
 

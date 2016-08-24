@@ -8,7 +8,7 @@ var Osm2Json = require('../lib/osm2json')
 
 test('expected output defaults', function (t) {
   var expected = require('./output_defaults.json')
-  var rs = fs.createReadStream(path.join(__dirname, 'test.osm'))
+  var rs = fs.createReadStream(path.join(__dirname, 'osm.xml'))
   rs.pipe(new Osm2Json()).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
@@ -17,7 +17,7 @@ test('expected output defaults', function (t) {
 
 test('non-streaming', function (t) {
   var expected = require('./output_defaults.json')
-  var input = fs.readFileSync(path.join(__dirname, 'test.osm'), 'utf8')
+  var input = fs.readFileSync(path.join(__dirname, 'osm.xml'), 'utf8')
   var parser = new Osm2Json()
   t.deepEqual(parser.parse(input), expected)
   t.deepEqual(parser.parse(input), expected, 're-usable')
@@ -26,7 +26,7 @@ test('non-streaming', function (t) {
 
 test('expected output coerceIds = false', function (t) {
   var expected = require('./output_string_ids.json')
-  var rs = fs.createReadStream(path.join(__dirname, 'test.osm'))
+  var rs = fs.createReadStream(path.join(__dirname, 'osm.xml'))
   rs.pipe(new Osm2Json({coerceIds: false})).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
@@ -45,7 +45,7 @@ test("expected output types = ['way']", function (t) {
       tags: { name: 'York St' }
     }
   ]
-  var rs = fs.createReadStream(path.join(__dirname, 'test.osm'))
+  var rs = fs.createReadStream(path.join(__dirname, 'osm.xml'))
   rs.pipe(new Osm2Json({types: ['way']})).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
@@ -63,7 +63,7 @@ test('expected output bounds = false', function (t) {
       tags: { name: 'York St' }
     }
   ]
-  var rs = fs.createReadStream(path.join(__dirname, 'test.osm'))
+  var rs = fs.createReadStream(path.join(__dirname, 'osm.xml'))
   rs.pipe(new Osm2Json({types: ['way'], bounds: false})).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
