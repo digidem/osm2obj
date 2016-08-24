@@ -137,6 +137,10 @@ Create a transform stream with:
 
 Any attribute that is not a valid OSM XML attribute will be ignored (see [`WHITELISTS`](https://github.com/digidem/osm2json/blob/master/lib/osm2json.js#L27-L48)). `tag`, `member`, or `nd` elements without the required attributes will throw an error. The readable side of the stream is in `objectMode`.
 
+Parses [OsmChange](http://wiki.openstreetmap.org/wiki/OsmChange) XML. Output objects will have property `action` which is one of `create`, `modify`, `delete`.
+
+If a `<delete>` block in osmChange XML has an `if-unused` attribute, then each object within the block will have a prop `ifUnused=true`. The value of the attribute is ignored, as per the [OSM API 0.6 spec](http://wiki.openstreetmap.org/wiki/API_v0.6#Diff_upload:_POST_.2Fapi.2F0.6.2Fchangeset.2F.23id.2Fupload).
+
 ### stream.parse(str)
 
 Parse `str` and return the result. Will throw any error.
