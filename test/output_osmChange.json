@@ -1,0 +1,52 @@
+[
+{
+  "type": "node",
+  "id": -1,
+  "changeset": 43,
+  "version": 1,
+  "lat": -33.9133123,
+  "lon": 151.1173123,
+  "action": "create"
+},
+{
+  "type": "node",
+  "id": -2,
+  "changeset": 43,
+  "version": 1,
+  "lat": -33.9233321,
+  "lon": 151.1173321,
+  "action": "create"
+},
+{
+  "type": "way",
+  "id": -3,
+  "changeset": 43,
+  "version": 1,
+  "action": "create",
+  "nodes": [
+    -1,
+    -2
+  ]
+},
+{
+  "type": "node",
+  "id": 1234,
+  "changeset": 42,
+  "version": 2,
+  "lat": 12.1234567,
+  "lon": -8.7654321,
+  "action": "modify",
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "node",
+  "id": 5678,
+  "changeset": 42,
+  "version": 1,
+  "lat": 12.1234567,
+  "lon": -8.7654321,
+  "action": "delete"
+}
+]

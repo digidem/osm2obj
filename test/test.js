@@ -95,3 +95,24 @@ test('diffResult', function (t) {
     t.end()
   }))
 })
+
+test('osmChange', function (t) {
+  var expected = require('./output_osmChange.json')
+  var rs = fs.createReadStream(path.join(__dirname, 'osmChange.xml'))
+  rs.pipe(new Osm2Json()).pipe(concat(function (data) {
+    t.deepEqual(data, expected)
+    t.end()
+  }))
+})
+
+test('osmChange with delete if-unused', function (t) {
+  var expected = [
+    { action: 'delete', changeset: 42, id: 12, lat: 1, lon: 2, type: 'node', version: 1, ifUnused: true },
+    { action: 'delete', changeset: 42, id: 34, lat: 3, lon: 4, type: 'node', version: 1 }
+  ]
+  var rs = fs.createReadStream(path.join(__dirname, 'osmChange_ifunused.xml'))
+  rs.pipe(new Osm2Json()).pipe(concat(function (data) {
+    t.deepEqual(data, expected, 'output has ifUnused prop')
+    t.end()
+  }))
+})

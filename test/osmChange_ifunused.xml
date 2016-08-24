@@ -1,0 +1,8 @@
+<osmChange version="0.6" generator="acme osm editor">
+    <delete if-unused="true">
+        <node id="12" changeset="42" version="1" lat="1" lon="2"/>
+    </delete>
+    <delete>
+        <node id="34" changeset="42" version="1" lat="3" lon="4"/>
+    </delete>
+</osmChange>
