@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.2.0] - 2017-09-08
+### Added
+- Ability to parse multiple docs [#3](https://github.com/digidem/osm2json/pull/3)
+
 ## [2.1.0] - 2016-08-23
 ### Added
 - Process `if-unused` attribute on `<delete>` block
@@ -29,6 +33,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## 0.0.1 - 2013-09-26
 - Initial release
 
+[2.2.0]: https://github.com/digidem/osm2json/compare/v2.1.0...v2.2.0
+[2.1.0]: https://github.com/digidem/osm2json/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/digidem/osm2json/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/digidem/osm2json/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/digidem/osm2json/compare/v1.0.0...v1.1.0
