@@ -144,7 +144,8 @@
       }
     ],
     "tags": {
-      "test": "relation"
+      "test": "relation",
+      "empty": ""
     },
     "timestamp": "2013-09-05T19:38:11Z",
     "version": 1

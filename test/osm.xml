@@ -34,5 +34,6 @@
     <member type="node" ref="19" role=""/>
     <member type="way" ref="3" role="outer"/>
     <tag k="test" v="relation"/>
+    <tag k="empty" v="" />
   </relation>
 </osm>
