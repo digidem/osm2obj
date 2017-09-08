@@ -116,3 +116,22 @@ test('osmChange with delete if-unused', function (t) {
     t.end()
   }))
 })
+
+test('multiple documents', function (t) {
+  var expected = require('./output_osmChange.json').concat([
+    { action: 'delete', changeset: 42, id: 12, lat: 1, lon: 2, type: 'node', version: 1, ifUnused: true },
+    { action: 'delete', changeset: 42, id: 34, lat: 3, lon: 4, type: 'node', version: 1 }
+  ])
+  var parser = new Osm2Json()
+  var rs1 = fs.readFileSync(path.join(__dirname, 'osmChange.xml'))
+  var rs2 = fs.readFileSync(path.join(__dirname, 'osmChange_ifunused.xml'))
+
+  parser.pipe(concat(function (data) {
+    t.deepEqual(data, expected)
+    t.end()
+  }))
+
+  parser.write(rs1)
+  parser.write(rs2)
+  parser.end()
+})
