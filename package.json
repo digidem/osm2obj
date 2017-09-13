@@ -1,14 +1,14 @@
 {
-  "name": "osm2json",
+  "name": "osm2obj",
   "version": "2.2.1",
-  "description": "Converts an OSM XML file to OSM JSON objects as a transform stream",
-  "main": "lib/osm2json.js",
+  "description": "Converts an OSM XML file to OSM objects as a transform stream",
+  "main": "lib/osm2obj.js",
   "scripts": {
     "test": "standard && tape test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/digidem/osm2json.git"
+    "url": "https://github.com/digidem/osm2obj.git"
   },
   "dependencies": {
     "readable-stream": "^2.1.5",
@@ -23,7 +23,7 @@
   "author": "Gregor MacLennan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/digidem/osm2json/issues"
+    "url": "https://github.com/digidem/osm2obj/issues"
   },
   "devDependencies": {
     "concat-stream": "^1.5.1",

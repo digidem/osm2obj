@@ -4,12 +4,12 @@ var path = require('path')
 var concat = require('concat-stream')
 var fromString = require('from2-string')
 
-var Osm2Json = require('../lib/osm2json')
+var Osm2Obj = require('../lib/osm2obj')
 
 test('expected output defaults', function (t) {
   var expected = require('./output_defaults.json')
   var rs = fs.createReadStream(path.join(__dirname, 'osm.xml'))
-  rs.pipe(new Osm2Json()).pipe(concat(function (data) {
+  rs.pipe(new Osm2Obj()).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
   }))
@@ -18,7 +18,7 @@ test('expected output defaults', function (t) {
 test('non-streaming', function (t) {
   var expected = require('./output_defaults.json')
   var input = fs.readFileSync(path.join(__dirname, 'osm.xml'), 'utf8')
-  var parser = new Osm2Json()
+  var parser = new Osm2Obj()
   t.deepEqual(parser.parse(input), expected)
   t.deepEqual(parser.parse(input), expected, 're-usable')
   t.end()
@@ -27,7 +27,7 @@ test('non-streaming', function (t) {
 test('expected output coerceIds = false', function (t) {
   var expected = require('./output_string_ids.json')
   var rs = fs.createReadStream(path.join(__dirname, 'osm.xml'))
-  rs.pipe(new Osm2Json({coerceIds: false})).pipe(concat(function (data) {
+  rs.pipe(new Osm2Obj({coerceIds: false})).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
   }))
@@ -46,7 +46,7 @@ test("expected output types = ['way']", function (t) {
     }
   ]
   var rs = fs.createReadStream(path.join(__dirname, 'osm.xml'))
-  rs.pipe(new Osm2Json({types: ['way']})).pipe(concat(function (data) {
+  rs.pipe(new Osm2Obj({types: ['way']})).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
   }))
@@ -64,7 +64,7 @@ test('expected output bounds = false', function (t) {
     }
   ]
   var rs = fs.createReadStream(path.join(__dirname, 'osm.xml'))
-  rs.pipe(new Osm2Json({types: ['way'], bounds: false})).pipe(concat(function (data) {
+  rs.pipe(new Osm2Obj({types: ['way'], bounds: false})).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
   }))
@@ -90,7 +90,7 @@ test('diffResult', function (t) {
     type: 'relation',
     old_id: 5
   }]
-  fromString(input).pipe(new Osm2Json()).pipe(concat(function (data) {
+  fromString(input).pipe(new Osm2Obj()).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
   }))
@@ -99,7 +99,7 @@ test('diffResult', function (t) {
 test('osmChange', function (t) {
   var expected = require('./output_osmChange.json')
   var rs = fs.createReadStream(path.join(__dirname, 'osmChange.xml'))
-  rs.pipe(new Osm2Json()).pipe(concat(function (data) {
+  rs.pipe(new Osm2Obj()).pipe(concat(function (data) {
     t.deepEqual(data, expected)
     t.end()
   }))
@@ -111,7 +111,7 @@ test('osmChange with delete if-unused', function (t) {
     { action: 'delete', changeset: 42, id: 34, lat: 3, lon: 4, type: 'node', version: 1 }
   ]
   var rs = fs.createReadStream(path.join(__dirname, 'osmChange_ifunused.xml'))
-  rs.pipe(new Osm2Json()).pipe(concat(function (data) {
+  rs.pipe(new Osm2Obj()).pipe(concat(function (data) {
     t.deepEqual(data, expected, 'output has ifUnused prop')
     t.end()
   }))
@@ -122,7 +122,7 @@ test('multiple documents', function (t) {
     { action: 'delete', changeset: 42, id: 12, lat: 1, lon: 2, type: 'node', version: 1, ifUnused: true },
     { action: 'delete', changeset: 42, id: 34, lat: 3, lon: 4, type: 'node', version: 1 }
   ])
-  var parser = new Osm2Json()
+  var parser = new Osm2Obj()
   var rs1 = fs.readFileSync(path.join(__dirname, 'osmChange.xml'))
   var rs2 = fs.readFileSync(path.join(__dirname, 'osmChange_ifunused.xml'))
 

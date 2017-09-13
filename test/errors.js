@@ -2,7 +2,7 @@ var test = require('tape')
 var fromString = require('from2-string')
 var concat = require('concat-stream')
 
-var Osm2Json = require('../lib/osm2json')
+var Osm2Obj = require('../lib/osm2obj')
 
 test('malformed xml', function (t) {
   var input = '<osm>\n' +
@@ -10,7 +10,7 @@ test('malformed xml', function (t) {
     '<tag k="comment" v="wow"/>' +
     '</changeset>' +
     '</osm>'
-  fromString(input).pipe(new Osm2Json({strict: true})).on('error', function (err) {
+  fromString(input).pipe(new Osm2Obj({strict: true})).on('error', function (err) {
     t.ok(err instanceof Error)
     t.end()
   }).resume()
@@ -22,7 +22,7 @@ test('invalid element', function (t) {
     '<bob k="comment" v="wow"/>' +
     '</changeset>' +
     '</osm>'
-  fromString(input).pipe(new Osm2Json({strict: true})).on('error', function (err) {
+  fromString(input).pipe(new Osm2Obj({strict: true})).on('error', function (err) {
     t.ok(err instanceof Error)
     t.end()
   }).resume()
@@ -34,7 +34,7 @@ test('relation member missing type', function (t) {
     '<member ref="19" role=""/>' +
     '</relation>' +
     '</osm>'
-  fromString(input).pipe(new Osm2Json()).on('error', function (err) {
+  fromString(input).pipe(new Osm2Obj()).on('error', function (err) {
     t.ok(err instanceof Error)
     t.ok(/type/i.test(err.message), 'Throws error missing type')
     t.end()
@@ -47,7 +47,7 @@ test('relation member empty type', function (t) {
     '<member ref="19" role="" type=""/>' +
     '</relation>' +
     '</osm>'
-  fromString(input).pipe(new Osm2Json()).on('error', function (err) {
+  fromString(input).pipe(new Osm2Obj()).on('error', function (err) {
     t.ok(err instanceof Error)
     t.ok(/type/i.test(err.message), 'Throws error missing type')
     t.end()
@@ -60,7 +60,7 @@ test('relation member missing ref', function (t) {
     '<member type="node" role=""/>' +
     '</relation>' +
     '</osm>'
-  fromString(input).pipe(new Osm2Json()).on('error', function (err) {
+  fromString(input).pipe(new Osm2Obj()).on('error', function (err) {
     t.ok(err instanceof Error)
     t.ok(/ref/i.test(err.message), 'Throws error missing ref')
     t.end()
@@ -85,7 +85,7 @@ test('relation member missing role', function (t) {
       type: 'node'
     }]
   }]
-  fromString(input).pipe(new Osm2Json()).pipe(concat(function (data) {
+  fromString(input).pipe(new Osm2Obj()).pipe(concat(function (data) {
     t.deepEqual(data, expected, 'missing role, no role on output')
     t.end()
   })).on('error', t.fail)
@@ -109,7 +109,7 @@ test('relation member empty role', function (t) {
       type: 'node'
     }]
   }]
-  fromString(input).pipe(new Osm2Json()).pipe(concat(function (data) {
+  fromString(input).pipe(new Osm2Obj()).pipe(concat(function (data) {
     t.deepEqual(data, expected, 'empty role, no role on output')
     t.end()
   })).on('error', t.fail)

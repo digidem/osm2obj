@@ -1,14 +1,12 @@
-# osm2json
+# osm2obj
 
-[![Build Status](https://img.shields.io/travis/digidem/osm2json.svg)](https://travis-ci.org/digidem/osm2json)
-[![npm](https://img.shields.io/npm/v/osm2json.svg)](https://www.npmjs.com/package/osm2json)
+[![Build Status](https://img.shields.io/travis/digidem/osm2obj.svg)](https://travis-ci.org/digidem/osm2obj)
+[![npm](https://img.shields.io/npm/v/osm2obj.svg)](https://www.npmjs.com/package/osm2obj)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?maxAge=2592000)](http://standardjs.com/)
 
-> Streaming parser from OSM XML to OSM JSON objects
+> Streaming parser from OSM XML to OSM objects
 
 Implements a [Node Transport Stream](http://nodejs.org/api/stream.html#stream_class_stream_transform). Takes a readable stream of [OSM XML](http://wiki.openstreetmap.org/wiki/OSM_XML) and outputs a stream of objects compatible with Overpass [OSM JSON](http://overpass-api.de/output_formats.html#json). Also reads [OsmChange](http://wiki.openstreetmap.org/wiki/OsmChange) XML and outputs the same format but with an additional property `action` which is one of `create`, `modify`, `delete`. Uses [sax-js](https://github.com/isaacs/sax-js) to work in both node and the browser.
-
-NB: The name of this module is a bit of a misnomer - it outputs objects, not JSON.
 
 ## Table of Contents
 
@@ -21,18 +19,18 @@ NB: The name of this module is a bit of a misnomer - it outputs objects, not JSO
 ## Install
 
 ```
-npm install osm2json
+npm install osm2obj
 ```
 
 ## Usage
 
 ```js
 var fs = require('fs')
-var Osm2Json = require('../lib/osm2json')
+var Osm2Obj = require('../lib/osm2obj')
 
 var rs = fs.createReadableStream(__dirname + './osm.xml')
 
-rs.pipe(new Osm2Json()).pipe(process.stdout)
+rs.pipe(new Osm2Obj()).pipe(process.stdout)
 ```
 
 ## Example Output
@@ -90,7 +88,7 @@ rs.pipe(new Osm2Json()).pipe(process.stdout)
 var through = require('through2')
 var fs = require('fs')
 var path = require('path')
-var Osm2Json = require('../lib/osm2json')
+var Osm2Obj = require('../lib/osm2obj')
 
 var rs = fs.createReadStream(path.join(__dirname, '../test/osm.xml'))
 
@@ -99,7 +97,7 @@ var jsonStream = through.obj(write, end)
 jsonStream.push('[')
 var start = true
 
-rs.pipe(new Osm2Json()).pipe(jsonStream).pipe(process.stdout)
+rs.pipe(new Osm2Obj()).pipe(jsonStream).pipe(process.stdout)
 
 function write (row, enc, next) {
   if (!start) {
@@ -118,10 +116,10 @@ function end (next) {
 ## API
 
 ```js
-var Osm2Json = require('osm2json')
+var Osm2Obj = require('osm2obj')
 ```
 
-### var stream = new Osm2Json(opts)
+### var stream = new Osm2Obj(opts)
 
 Create a transform stream with:
 
@@ -135,7 +133,7 @@ Create a transform stream with:
   - An action element (`create, modify, delete`) appears when the root is not `osmChange`
   - Any element in the XML which is not one of `create, modify, delete, node, way, relation, changeset, bounds, nd, tag, member`
 
-Any attribute that is not a valid OSM XML attribute will be ignored (see [`WHITELISTS`](https://github.com/digidem/osm2json/blob/master/lib/osm2json.js#L27-L48)). `tag`, `member`, or `nd` elements without the required attributes will throw an error. The readable side of the stream is in `objectMode`.
+Any attribute that is not a valid OSM XML attribute will be ignored (see [`WHITELISTS`](https://github.com/digidem/osm2obj/blob/master/lib/osm2obj.js#L27-L48)). `tag`, `member`, or `nd` elements without the required attributes will throw an error. The readable side of the stream is in `objectMode`.
 
 Parses [OsmChange](http://wiki.openstreetmap.org/wiki/OsmChange) XML. Output objects will have property `action` which is one of `create`, `modify`, `delete`.
 
