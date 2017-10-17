@@ -135,3 +135,26 @@ test('multiple documents', function (t) {
   parser.write(rs2)
   parser.end()
 })
+
+test('empty key', function (t) {
+  var expected = [
+    {
+      type: 'node',
+      id: 5104989386,
+      version: 1,
+      timestamp: '2017-09-14T10:25:02Z',
+      uid: 499500,
+      user: 'hanchao',
+      changeset: 52032689,
+      lat: 38.9875205,
+      lon: 116.4903698,
+      tags: { name: '文安鲁能华美达广场酒店' }
+    }
+  ]
+  var rs = fs.createReadStream(path.join(__dirname, 'empty_key.xml'))
+  rs.pipe(new Osm2Obj()).pipe(concat(function (data) {
+    t.deepEqual(data, expected)
+    t.end()
+  }))
+})
+
