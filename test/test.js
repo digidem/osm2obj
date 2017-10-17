@@ -37,11 +37,11 @@ test("expected output types = ['way']", function (t) {
   var expected = [
     { maxlat: 90, maxlon: 180, minlat: -90, minlon: -180, type: 'bounds' },
     { type: 'way',
-      id: 3,
-      version: 3,
+      id: '3',
+      version: '3',
       timestamp: '2013-09-05T19:38:11Z',
-      changeset: 49,
-      nodes: [ 19, 20, 21, 22, 26, 27 ],
+      changeset: '49',
+      nodes: [ '19', '20', '21', '22', '26', '27' ],
       tags: { name: 'York St' }
     }
   ]
@@ -55,11 +55,11 @@ test("expected output types = ['way']", function (t) {
 test('expected output bounds = false', function (t) {
   var expected = [
     { type: 'way',
-      id: 3,
-      version: 3,
+      id: '3',
+      version: '3',
       timestamp: '2013-09-05T19:38:11Z',
-      changeset: 49,
-      nodes: [ 19, 20, 21, 22, 26, 27 ],
+      changeset: '49',
+      nodes: [ '19', '20', '21', '22', '26', '27' ],
       tags: { name: 'York St' }
     }
   ]
@@ -78,17 +78,17 @@ test('diffResult', function (t) {
     '</diffResult>'
   var expected = [{
     type: 'node',
-    old_id: 1,
-    new_id: 2,
-    new_version: 2
+    old_id: '1',
+    new_id: '2',
+    new_version: '2'
   }, {
     type: 'way',
-    old_id: 3,
-    new_id: 4,
-    new_version: 2
+    old_id: '3',
+    new_id: '4',
+    new_version: '2'
   }, {
     type: 'relation',
-    old_id: 5
+    old_id: '5'
   }]
   fromString(input).pipe(new Osm2Obj()).pipe(concat(function (data) {
     t.deepEqual(data, expected)
@@ -107,8 +107,8 @@ test('osmChange', function (t) {
 
 test('osmChange with delete if-unused', function (t) {
   var expected = [
-    { action: 'delete', changeset: 42, id: 12, lat: 1, lon: 2, type: 'node', version: 1, ifUnused: true },
-    { action: 'delete', changeset: 42, id: 34, lat: 3, lon: 4, type: 'node', version: 1 }
+    { action: 'delete', changeset: '42', id: '12', lat: 1, lon: 2, type: 'node', version: '1', ifUnused: true },
+    { action: 'delete', changeset: '42', id: '34', lat: 3, lon: 4, type: 'node', version: '1' }
   ]
   var rs = fs.createReadStream(path.join(__dirname, 'osmChange_ifunused.xml'))
   rs.pipe(new Osm2Obj()).pipe(concat(function (data) {
@@ -119,8 +119,8 @@ test('osmChange with delete if-unused', function (t) {
 
 test('multiple documents', function (t) {
   var expected = require('./output_osmChange.json').concat([
-    { action: 'delete', changeset: 42, id: 12, lat: 1, lon: 2, type: 'node', version: 1, ifUnused: true },
-    { action: 'delete', changeset: 42, id: 34, lat: 3, lon: 4, type: 'node', version: 1 }
+    { action: 'delete', changeset: '42', id: '12', lat: 1, lon: 2, type: 'node', version: '1', ifUnused: true },
+    { action: 'delete', changeset: '42', id: '34', lat: 3, lon: 4, type: 'node', version: '1' }
   ])
   var parser = new Osm2Obj({strict: true})
   var rs1 = fs.readFileSync(path.join(__dirname, 'osmChange.xml'))
@@ -140,12 +140,12 @@ test('empty key', function (t) {
   var expected = [
     {
       type: 'node',
-      id: 5104989386,
-      version: 1,
+      id: '5104989386',
+      version: '1',
       timestamp: '2017-09-14T10:25:02Z',
-      uid: 499500,
+      uid: '499500',
       user: 'hanchao',
-      changeset: 52032689,
+      changeset: '52032689',
       lat: 38.9875205,
       lon: 116.4903698,
       tags: { name: '文安鲁能华美达广场酒店' }

@@ -123,7 +123,7 @@ var Osm2Obj = require('osm2obj')
 
 Create a transform stream with:
 
-* `opts.coerceIds` - coerce id-type fields (`id, uid, version, changeset, ref`) to `Number` (default `true`) - useful for [osm-p2p-db](https://github.com/digidem/osm-p2p-db) where ids can be strings.
+* `opts.coerceIds` - coerce id-type fields (`id, uid, version, changeset, ref`) to `Number` (default `false`) - useful for [osm-p2p-db](https://github.com/digidem/osm-p2p-db) where ids can be strings.
 * `opts.bounds` - Also parse bounds (default `true`)
 * `opts.types` - An array of element types you are interested in, e.g. `opts.types = ['node']` (default `['node', 'way', 'relation', 'changeset']`)
 * `opts.strict` - Be a jerk about XML (default `false`). In strict mode will throw an error if:

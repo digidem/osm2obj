@@ -76,12 +76,12 @@ test('relation member missing role', function (t) {
 
   var expected = [{
     type: 'relation',
-    id: 30,
-    version: 1,
+    id: '30',
+    version: '1',
     timestamp: '2013-09-05T19:38:11Z',
-    changeset: 49,
+    changeset: '49',
     members: [{
-      ref: 19,
+      ref: '19',
       type: 'node'
     }]
   }]
@@ -100,12 +100,12 @@ test('relation member empty role', function (t) {
 
   var expected = [{
     type: 'relation',
-    id: 30,
-    version: 1,
+    id: '30',
+    version: '1',
     timestamp: '2013-09-05T19:38:11Z',
-    changeset: 49,
+    changeset: '49',
     members: [{
-      ref: 19,
+      ref: '19',
       type: 'node'
     }]
   }]

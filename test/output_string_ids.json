@@ -1,4 +1,5 @@
-[ {
+[
+  {
     "type": "bounds",
     "maxlat": 90,
     "maxlon": 180,
