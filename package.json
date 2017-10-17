@@ -11,6 +11,7 @@
     "url": "https://github.com/digidem/osm2obj.git"
   },
   "dependencies": {
+    "htmlparser2": "^3.9.2",
     "readable-stream": "^2.1.5",
     "sax": "^1.2.1"
   },
