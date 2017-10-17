@@ -1,6 +1,6 @@
 {
   "name": "osm2obj",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Converts an OSM XML file to OSM objects as a transform stream",
   "main": "lib/osm2obj.js",
   "scripts": {
