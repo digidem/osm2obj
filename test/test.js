@@ -122,7 +122,7 @@ test('multiple documents', function (t) {
     { action: 'delete', changeset: 42, id: 12, lat: 1, lon: 2, type: 'node', version: 1, ifUnused: true },
     { action: 'delete', changeset: 42, id: 34, lat: 3, lon: 4, type: 'node', version: 1 }
   ])
-  var parser = new Osm2Obj()
+  var parser = new Osm2Obj({strict: true})
   var rs1 = fs.readFileSync(path.join(__dirname, 'osmChange.xml'))
   var rs2 = fs.readFileSync(path.join(__dirname, 'osmChange_ifunused.xml'))
 
