@@ -30,7 +30,8 @@ var Osm2Obj = require('../lib/osm2obj')
 
 var rs = fs.createReadableStream(__dirname + './osm.xml')
 
-rs.pipe(new Osm2Obj()).pipe(process.stdout)
+rs.pipe(new Osm2Obj())
+  .on('data', console.log)
 ```
 
 ## Example Output
